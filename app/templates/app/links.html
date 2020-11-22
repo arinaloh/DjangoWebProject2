@@ -1,0 +1,11 @@
+{% extends "app/layout.html" %}
+
+{% block content %}{%  load staticfiles %} 
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+<a href ="https://isz.minsk.by/history/spps/color.html" target="_blank"> <img src="{% static 'app/content/цветология.jpg' %}" alt="Цветология"/></a>
+<a href ="http://flowerindustry.ru/stati/vse-o-cvetah/jazyk-cvetov-chto-oznachayut-cvety.html" target="_blank"> <img src="{% static 'app/content/языкцветов.jpg' %}" alt="ЯзыкЦветов"/></a>
+<a href ="https://favorit-flowers.ru/vidy-upakovki-dlja-buketov.html" target="_blank"> <img src="{% static 'app/content/упаковка.jpg' %}" alt="Упаковка"/></a>
+{% endblock %}

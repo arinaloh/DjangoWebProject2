@@ -1,0 +1,105 @@
+{% extends "app/layout.html" %}
+{% block content %}
+{% if form != None %}
+<br><h2>Оставьте отзыв</h2><br>
+<div>
+	<form method="POST">
+	    {% csrf_token %}
+		<label for="{{ form.name.id_for_label }}">{{ form.name.label }}:</label>
+		{{ form.name }}<br><br>
+		<label for="{{ form.gender.id_for_label }}">{{ form.gender.label }}:</label>
+		{{ form.gender }}		
+		<label for="{{ form.Forwho.id_for_label }}">{{ form.Forwho.label }}:</label>
+		{{ form.Forwho }}<br><br>
+		<label for="{{ form.Cause.id_for_label }}">{{ form.Cause.label }}:</label>
+		{{ form.Cause }}<br><br>
+		<label for="{{ form.Feedback.id_for_label }}">{{ form.Feedback.label }}:</label><br>
+		{{ form.Feedback }}<br><br>
+		<label for="{{ form.notice.id_for_label }}">{{ form.notice.label }}:</label>
+		{{ form.notice }}<br><br>
+		<label for="{{ form.email.id_for_label }}">{{ form.email.label }}:</label>
+		{{ form.email }}<br><br>
+		<input type="submit" value="Отправить" id="submit">
+	</form>
+    <script>
+            function mouse_in()
+            {
+                $('#submit').css('background', 'rgb(136 110 239)');
+                $('#submit').css('color', 'black');
+         }
+         function mouse_out()
+            {
+             $('#submit').css('background', '#ddd');
+             $('#submit').css('color', 'black');
+            }
+        
+          function focus_in()
+            {
+              $('#id_name').css('background', '#fff');
+         }
+          function focus_out()
+            {
+                $('#id_name').css('background', '#ddd');
+         }
+          function focus_in1()
+            {
+              $('#id_Forwho').css('background', '#fff');
+         }
+          function focus_out1()
+            {
+                $('#id_Forwho').css('background', '#ddd');
+         }
+          function focus_in3()
+            {
+              $('#id_Cause').css('background', '#fff');
+         }
+          function focus_out3()
+            {
+                $('#id_Cause').css('background', '#ddd');
+         }
+                   function focus_in4()
+            {
+              $('#id_Feedback').css('background', '#fff');
+         }
+          function focus_out4()
+            {
+                $('#id_Feedback').css('background', '#ddd');
+         }
+                      function focus_in5()
+            {
+              $('#id_email').css('background', '#fff');
+         }
+          function focus_out5()
+            {
+                $('#id_email').css('background', '#ddd');
+         }
+         $('#submit').mouseover(mouse_in);
+         $('#submit').mouseout(mouse_out);
+         $('#id_name').focus(focus_in);
+         $('#id_name').blur(focus_out);
+         $('#id_Forwho').focus(focus_in1);    
+         $('#id_Forwho').blur(focus_out1);
+         $('#id_Cause').focus(focus_in3);
+         $('#id_Cause').blur(focus_out3);
+         $('#id_Feedback').focus(focus_in4);
+         $('#id_Feedback').blur(focus_out4);
+         $('#id_email').focus(focus_in5);
+         $('#id_email').blur(focus_out5);
+    </script>
+</div>
+{% else %}
+<br><h2>Благодарим Вас за отзыв!</h2>
+<h3>Вы сообщили следующее:</h3>
+<ul>
+	<li><span>Имя:</span>{{ data.name }}</li>
+	<li><span>Пол:</span>{{ data.gender }}</li>
+	<li><span>Для кого:</span>{{ data.Forwho }}</li>
+	<li><span>По случаю:</span>{{ data.Cause }}</li>
+	<li><span>Отзыв:</span>{{ data.Feedback }}</li>
+	<li><span>Получать новости нашего магазина по e-mail:</span>
+        {{ data.notice }}
+    </li>
+	<li><span>Ваш e-mail:</span>{{ data.email }}</li>
+</ul>
+{% endif %}
+{% endblock %}
